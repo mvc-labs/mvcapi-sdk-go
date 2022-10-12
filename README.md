@@ -36,7 +36,7 @@ package main
 import (
 	"context"
 	"fmt"
-	metasv "github.com/metasv/metasv-mvc-sdk-go"
+	"github.com/metasv/metasv-mvc-sdk-go"
 	"os"
 )
 
