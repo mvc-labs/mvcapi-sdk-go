@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **FeeAddressPkh** | Pointer to **string** | feeAddressPkh | [optional] 
 **FeeAmount** | Pointer to **int64** | feeAmount | [optional] 
 **FeeRate** | Pointer to **int32** | feeRate | [optional] 
-**Height** | Pointer to **int32** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
+**Height** | Pointer to **int64** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
 **NftCodeHash** | Pointer to **string** | nftCodeHash | [optional] 
 **NftId** | Pointer to **string** | nftId of the auctioning fnt | [optional] 
 **SenderAddressPkh** | Pointer to **string** | senderAddressPkh | [optional] 
@@ -349,20 +349,20 @@ HasFeeRate returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *ContractNftAuctionUtxo) GetHeight() int32`
+`func (o *ContractNftAuctionUtxo) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *ContractNftAuctionUtxo) GetHeightOk() (*int32, bool)`
+`func (o *ContractNftAuctionUtxo) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *ContractNftAuctionUtxo) SetHeight(v int32)`
+`func (o *ContractNftAuctionUtxo) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 

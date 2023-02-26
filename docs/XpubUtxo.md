@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Txid** | Pointer to **string** | Txid for this utxo. | [optional] 
 **TxIndex** | Pointer to **int32** | Output index for the Utxo. | [optional] 
 **Value** | Pointer to **int64** | Satoshi value of the utxo. | [optional] 
-**Height** | Pointer to **int32** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
+**Height** | Pointer to **int64** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
 **Flag** | Pointer to **int64** | The paging flag of utxo | [optional] 
 
 ## Methods
@@ -210,20 +210,20 @@ HasValue returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *XpubUtxo) GetHeight() int32`
+`func (o *XpubUtxo) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *XpubUtxo) GetHeightOk() (*int32, bool)`
+`func (o *XpubUtxo) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *XpubUtxo) SetHeight(v int32)`
+`func (o *XpubUtxo) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 

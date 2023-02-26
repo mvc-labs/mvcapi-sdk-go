@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -41,7 +41,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the MetaSV API Spec API v2.2.0
+// APIClient manages communication with the MetaSV for MVC API Spec API v3.0.2
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

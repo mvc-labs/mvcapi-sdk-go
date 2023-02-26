@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Txid** | Pointer to **string** | Transaction hash. | [optional] 
-**Height** | Pointer to **int32** | Block height of this tx. | [optional] 
+**Height** | Pointer to **int64** | Block height of this tx. | [optional] 
 **BlockHash** | Pointer to **string** | Hash of the block | [optional] 
 **Size** | Pointer to **int64** | transaction size | [optional] 
 **InputCount** | Pointer to **int32** | Input count in this transaction | [optional] 
 **OutputCount** | Pointer to **int32** | Output count in this transaction. | [optional] 
 **LockTime** | Pointer to **int64** | Lock time of this transaction | [optional] 
 **Fee** | Pointer to **int64** | Trasaction fee. | [optional] 
-**Confirmations** | Pointer to **int32** | Confirmations of this transaction, -1 if unconfirmed. | [optional] 
+**Confirmations** | Pointer to **int64** | Confirmations of this transaction, -1 if unconfirmed. | [optional] 
 **Timestamp** | Pointer to **int64** | Block timestamp for the transaction, confirmed tx only. | [optional] 
 
 ## Methods
@@ -61,20 +61,20 @@ HasTxid returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *BlockTx) GetHeight() int32`
+`func (o *BlockTx) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *BlockTx) GetHeightOk() (*int32, bool)`
+`func (o *BlockTx) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *BlockTx) SetHeight(v int32)`
+`func (o *BlockTx) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 
@@ -236,20 +236,20 @@ HasFee returns a boolean if a field has been set.
 
 ### GetConfirmations
 
-`func (o *BlockTx) GetConfirmations() int32`
+`func (o *BlockTx) GetConfirmations() int64`
 
 GetConfirmations returns the Confirmations field if non-nil, zero value otherwise.
 
 ### GetConfirmationsOk
 
-`func (o *BlockTx) GetConfirmationsOk() (*int32, bool)`
+`func (o *BlockTx) GetConfirmationsOk() (*int64, bool)`
 
 GetConfirmationsOk returns a tuple with the Confirmations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfirmations
 
-`func (o *BlockTx) SetConfirmations(v int32)`
+`func (o *BlockTx) SetConfirmations(v int64)`
 
 SetConfirmations sets Confirmations field to given value.
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Flag** | Pointer to **string** | Paging flag | [optional] 
 **Address** | Pointer to **string** | The address of the record | [optional] 
 **Time** | Pointer to **int64** | timestamp of the tx | [optional] 
-**Height** | Pointer to **int32** | Block Height of the tx, -1 if not confirmed | [optional] 
+**Height** | Pointer to **int64** | Block Height of the tx, -1 if not confirmed | [optional] 
 **Income** | Pointer to **int64** | total income of the address from this tx | [optional] 
 **Outcome** | Pointer to **int64** | total outcome of the address from this tx | [optional] 
 **Txid** | Pointer to **string** | txid of this record | [optional] 
@@ -108,20 +108,20 @@ HasTime returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *AddressTx) GetHeight() int32`
+`func (o *AddressTx) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *AddressTx) GetHeightOk() (*int32, bool)`
+`func (o *AddressTx) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *AddressTx) SetHeight(v int32)`
+`func (o *AddressTx) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 

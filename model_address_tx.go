@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -24,7 +24,7 @@ type AddressTx struct {
 	// timestamp of the tx
 	Time *int64 `json:"time,omitempty"`
 	// Block Height of the tx, -1 if not confirmed
-	Height *int32 `json:"height,omitempty"`
+	Height *int64 `json:"height,omitempty"`
 	// total income of the address from this tx
 	Income *int64 `json:"income,omitempty"`
 	// total outcome of the address from this tx
@@ -147,9 +147,9 @@ func (o *AddressTx) SetTime(v int64) {
 }
 
 // GetHeight returns the Height field value if set, zero value otherwise.
-func (o *AddressTx) GetHeight() int32 {
+func (o *AddressTx) GetHeight() int64 {
 	if o == nil || o.Height == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Height
@@ -157,7 +157,7 @@ func (o *AddressTx) GetHeight() int32 {
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AddressTx) GetHeightOk() (*int32, bool) {
+func (o *AddressTx) GetHeightOk() (*int64, bool) {
 	if o == nil || o.Height == nil {
 		return nil, false
 	}
@@ -173,8 +173,8 @@ func (o *AddressTx) HasHeight() bool {
 	return false
 }
 
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
-func (o *AddressTx) SetHeight(v int32) {
+// SetHeight gets a reference to the given int64 and assigns it to the Height field.
+func (o *AddressTx) SetHeight(v int64) {
 	o.Height = &v
 }
 

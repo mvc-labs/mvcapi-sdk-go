@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -30,9 +30,9 @@ type XpubDetail struct {
 	// Current xpub process mode, 0 means preparing(not ready), 1 means synchronizing(ready)
 	Mode *int32 `json:"mode,omitempty"`
 	// Skip blocks before skipHeight while searching transactions. This will speed up sync time.
-	SkipHeight *int32 `json:"skipHeight,omitempty"`
+	SkipHeight *int64 `json:"skipHeight,omitempty"`
 	// Xpub current processed height.
-	ProcessHeight *int32 `json:"processHeight,omitempty"`
+	ProcessHeight *int64 `json:"processHeight,omitempty"`
 }
 
 // NewXpubDetail instantiates a new XpubDetail object
@@ -245,9 +245,9 @@ func (o *XpubDetail) SetMode(v int32) {
 }
 
 // GetSkipHeight returns the SkipHeight field value if set, zero value otherwise.
-func (o *XpubDetail) GetSkipHeight() int32 {
+func (o *XpubDetail) GetSkipHeight() int64 {
 	if o == nil || o.SkipHeight == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SkipHeight
@@ -255,7 +255,7 @@ func (o *XpubDetail) GetSkipHeight() int32 {
 
 // GetSkipHeightOk returns a tuple with the SkipHeight field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *XpubDetail) GetSkipHeightOk() (*int32, bool) {
+func (o *XpubDetail) GetSkipHeightOk() (*int64, bool) {
 	if o == nil || o.SkipHeight == nil {
 		return nil, false
 	}
@@ -271,15 +271,15 @@ func (o *XpubDetail) HasSkipHeight() bool {
 	return false
 }
 
-// SetSkipHeight gets a reference to the given int32 and assigns it to the SkipHeight field.
-func (o *XpubDetail) SetSkipHeight(v int32) {
+// SetSkipHeight gets a reference to the given int64 and assigns it to the SkipHeight field.
+func (o *XpubDetail) SetSkipHeight(v int64) {
 	o.SkipHeight = &v
 }
 
 // GetProcessHeight returns the ProcessHeight field value if set, zero value otherwise.
-func (o *XpubDetail) GetProcessHeight() int32 {
+func (o *XpubDetail) GetProcessHeight() int64 {
 	if o == nil || o.ProcessHeight == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.ProcessHeight
@@ -287,7 +287,7 @@ func (o *XpubDetail) GetProcessHeight() int32 {
 
 // GetProcessHeightOk returns a tuple with the ProcessHeight field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *XpubDetail) GetProcessHeightOk() (*int32, bool) {
+func (o *XpubDetail) GetProcessHeightOk() (*int64, bool) {
 	if o == nil || o.ProcessHeight == nil {
 		return nil, false
 	}
@@ -303,8 +303,8 @@ func (o *XpubDetail) HasProcessHeight() bool {
 	return false
 }
 
-// SetProcessHeight gets a reference to the given int32 and assigns it to the ProcessHeight field.
-func (o *XpubDetail) SetProcessHeight(v int32) {
+// SetProcessHeight gets a reference to the given int64 and assigns it to the ProcessHeight field.
+func (o *XpubDetail) SetProcessHeight(v int64) {
 	o.ProcessHeight = &v
 }
 

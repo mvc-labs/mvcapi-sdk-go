@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -42,7 +42,7 @@ type ContractNftAuctionUtxo struct {
 	// feeRate
 	FeeRate *int32 `json:"feeRate,omitempty"`
 	// The height of this utxo, -1 for unconfirmed utxo.
-	Height *int32 `json:"height,omitempty"`
+	Height *int64 `json:"height,omitempty"`
 	// nftCodeHash
 	NftCodeHash *string `json:"nftCodeHash,omitempty"`
 	// nftId of the auctioning fnt
@@ -467,9 +467,9 @@ func (o *ContractNftAuctionUtxo) SetFeeRate(v int32) {
 }
 
 // GetHeight returns the Height field value if set, zero value otherwise.
-func (o *ContractNftAuctionUtxo) GetHeight() int32 {
+func (o *ContractNftAuctionUtxo) GetHeight() int64 {
 	if o == nil || o.Height == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Height
@@ -477,7 +477,7 @@ func (o *ContractNftAuctionUtxo) GetHeight() int32 {
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContractNftAuctionUtxo) GetHeightOk() (*int32, bool) {
+func (o *ContractNftAuctionUtxo) GetHeightOk() (*int64, bool) {
 	if o == nil || o.Height == nil {
 		return nil, false
 	}
@@ -493,8 +493,8 @@ func (o *ContractNftAuctionUtxo) HasHeight() bool {
 	return false
 }
 
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
-func (o *ContractNftAuctionUtxo) SetHeight(v int32) {
+// SetHeight gets a reference to the given int64 and assigns it to the Height field.
+func (o *ContractNftAuctionUtxo) SetHeight(v int64) {
 	o.Height = &v
 }
 

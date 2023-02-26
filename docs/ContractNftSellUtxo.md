@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Price** | Pointer to **int64** | the price of nft. | [optional] 
 **Satoshi** | Pointer to **int64** | Mvc value of the utxo(Irrelavant to token value) | [optional] 
 **SatoshiString** | Pointer to **string** | Mvc value of the utxo(In string format) | [optional] 
-**Height** | Pointer to **int32** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
+**Height** | Pointer to **int64** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
 **IsReady** | Pointer to **bool** | Is current nft transfered into sell contract, If not ready, the following fields will be null | [optional] 
 **SensibleId** | Pointer to **string** | SensibleId of the token | [optional] 
 **MetaTxid** | Pointer to **string** | The metanet tx describing the nft. | [optional] 
@@ -293,20 +293,20 @@ HasSatoshiString returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *ContractNftSellUtxo) GetHeight() int32`
+`func (o *ContractNftSellUtxo) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *ContractNftSellUtxo) GetHeightOk() (*int32, bool)`
+`func (o *ContractNftSellUtxo) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *ContractNftSellUtxo) SetHeight(v int32)`
+`func (o *ContractNftSellUtxo) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 

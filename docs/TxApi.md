@@ -4,12 +4,79 @@ All URIs are relative to *https://api-mvc-testnet.metasv.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**TxBroadcastBatchPost**](TxApi.md#TxBroadcastBatchPost) | **Post** /tx/broadcast/batch | Broadcast a batch of tx to metasv fullnode. The tx will be processed one by one.
 [**TxBroadcastPost**](TxApi.md#TxBroadcastPost) | **Post** /tx/broadcast | Broadcast tx to metasv fullnode.
 [**TxTxidGet**](TxApi.md#TxTxidGet) | **Get** /tx/{txid} | Get transaction detail by specific txid.
 [**TxTxidRawGet**](TxApi.md#TxTxidRawGet) | **Get** /tx/{txid}/raw | Get transaction raw hex by specific txid.
 [**TxTxidSeenGet**](TxApi.md#TxTxidSeenGet) | **Get** /tx/{txid}/seen | Whether MetaSV have seen this tx before. This is a fast approach to know if the tx exist or not.
 [**VinTxidDetailGet**](TxApi.md#VinTxidDetailGet) | **Get** /vin/{txid}/detail | Get all output point of vins in the tx with detailed output script.
 
+
+
+## TxBroadcastBatchPost
+
+> []BroadcastResult TxBroadcastBatchPost(ctx).TxRaw(txRaw).Execute()
+
+Broadcast a batch of tx to metasv fullnode. The tx will be processed one by one.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    txRaw := []openapiclient.TxRaw{*openapiclient.NewTxRaw()} // []TxRaw |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.TxApi.TxBroadcastBatchPost(context.Background()).TxRaw(txRaw).Execute()
+    if err.Error() != "" {
+        fmt.Fprintf(os.Stderr, "Error when calling `TxApi.TxBroadcastBatchPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TxBroadcastBatchPost`: []BroadcastResult
+    fmt.Fprintf(os.Stdout, "Response from `TxApi.TxBroadcastBatchPost`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTxBroadcastBatchPostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **txRaw** | [**[]TxRaw**](TxRaw.md) |  | 
+
+### Return type
+
+[**[]BroadcastResult**](BroadcastResult.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## TxBroadcastPost

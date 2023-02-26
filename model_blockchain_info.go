@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -31,6 +31,14 @@ type BlockchainInfo struct {
 	MedianTime *int64 `json:"medianTime,omitempty"`
 	// current pow
 	Chainwork *string `json:"chainwork,omitempty"`
+	// estimated current network hash rate.
+	NetworkHashPerSecond *string `json:"networkHashPerSecond,omitempty"`
+	// current mempool transaction count.
+	MempoolTxCount *int32 `json:"mempoolTxCount,omitempty"`
+	// current mempool usage.
+	MempoolUsage *int64 `json:"mempoolUsage,omitempty"`
+	// next estimated block size.
+	EstimatedBlockSize *int64 `json:"estimatedBlockSize,omitempty"`
 }
 
 // NewBlockchainInfo instantiates a new BlockchainInfo object
@@ -274,6 +282,134 @@ func (o *BlockchainInfo) SetChainwork(v string) {
 	o.Chainwork = &v
 }
 
+// GetNetworkHashPerSecond returns the NetworkHashPerSecond field value if set, zero value otherwise.
+func (o *BlockchainInfo) GetNetworkHashPerSecond() string {
+	if o == nil || o.NetworkHashPerSecond == nil {
+		var ret string
+		return ret
+	}
+	return *o.NetworkHashPerSecond
+}
+
+// GetNetworkHashPerSecondOk returns a tuple with the NetworkHashPerSecond field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BlockchainInfo) GetNetworkHashPerSecondOk() (*string, bool) {
+	if o == nil || o.NetworkHashPerSecond == nil {
+		return nil, false
+	}
+	return o.NetworkHashPerSecond, true
+}
+
+// HasNetworkHashPerSecond returns a boolean if a field has been set.
+func (o *BlockchainInfo) HasNetworkHashPerSecond() bool {
+	if o != nil && o.NetworkHashPerSecond != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNetworkHashPerSecond gets a reference to the given string and assigns it to the NetworkHashPerSecond field.
+func (o *BlockchainInfo) SetNetworkHashPerSecond(v string) {
+	o.NetworkHashPerSecond = &v
+}
+
+// GetMempoolTxCount returns the MempoolTxCount field value if set, zero value otherwise.
+func (o *BlockchainInfo) GetMempoolTxCount() int32 {
+	if o == nil || o.MempoolTxCount == nil {
+		var ret int32
+		return ret
+	}
+	return *o.MempoolTxCount
+}
+
+// GetMempoolTxCountOk returns a tuple with the MempoolTxCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BlockchainInfo) GetMempoolTxCountOk() (*int32, bool) {
+	if o == nil || o.MempoolTxCount == nil {
+		return nil, false
+	}
+	return o.MempoolTxCount, true
+}
+
+// HasMempoolTxCount returns a boolean if a field has been set.
+func (o *BlockchainInfo) HasMempoolTxCount() bool {
+	if o != nil && o.MempoolTxCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMempoolTxCount gets a reference to the given int32 and assigns it to the MempoolTxCount field.
+func (o *BlockchainInfo) SetMempoolTxCount(v int32) {
+	o.MempoolTxCount = &v
+}
+
+// GetMempoolUsage returns the MempoolUsage field value if set, zero value otherwise.
+func (o *BlockchainInfo) GetMempoolUsage() int64 {
+	if o == nil || o.MempoolUsage == nil {
+		var ret int64
+		return ret
+	}
+	return *o.MempoolUsage
+}
+
+// GetMempoolUsageOk returns a tuple with the MempoolUsage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BlockchainInfo) GetMempoolUsageOk() (*int64, bool) {
+	if o == nil || o.MempoolUsage == nil {
+		return nil, false
+	}
+	return o.MempoolUsage, true
+}
+
+// HasMempoolUsage returns a boolean if a field has been set.
+func (o *BlockchainInfo) HasMempoolUsage() bool {
+	if o != nil && o.MempoolUsage != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetMempoolUsage gets a reference to the given int64 and assigns it to the MempoolUsage field.
+func (o *BlockchainInfo) SetMempoolUsage(v int64) {
+	o.MempoolUsage = &v
+}
+
+// GetEstimatedBlockSize returns the EstimatedBlockSize field value if set, zero value otherwise.
+func (o *BlockchainInfo) GetEstimatedBlockSize() int64 {
+	if o == nil || o.EstimatedBlockSize == nil {
+		var ret int64
+		return ret
+	}
+	return *o.EstimatedBlockSize
+}
+
+// GetEstimatedBlockSizeOk returns a tuple with the EstimatedBlockSize field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *BlockchainInfo) GetEstimatedBlockSizeOk() (*int64, bool) {
+	if o == nil || o.EstimatedBlockSize == nil {
+		return nil, false
+	}
+	return o.EstimatedBlockSize, true
+}
+
+// HasEstimatedBlockSize returns a boolean if a field has been set.
+func (o *BlockchainInfo) HasEstimatedBlockSize() bool {
+	if o != nil && o.EstimatedBlockSize != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetEstimatedBlockSize gets a reference to the given int64 and assigns it to the EstimatedBlockSize field.
+func (o *BlockchainInfo) SetEstimatedBlockSize(v int64) {
+	o.EstimatedBlockSize = &v
+}
+
 func (o BlockchainInfo) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Chain != nil {
@@ -296,6 +432,18 @@ func (o BlockchainInfo) MarshalJSON() ([]byte, error) {
 	}
 	if o.Chainwork != nil {
 		toSerialize["chainwork"] = o.Chainwork
+	}
+	if o.NetworkHashPerSecond != nil {
+		toSerialize["networkHashPerSecond"] = o.NetworkHashPerSecond
+	}
+	if o.MempoolTxCount != nil {
+		toSerialize["mempoolTxCount"] = o.MempoolTxCount
+	}
+	if o.MempoolUsage != nil {
+		toSerialize["mempoolUsage"] = o.MempoolUsage
+	}
+	if o.EstimatedBlockSize != nil {
+		toSerialize["estimatedBlockSize"] = o.EstimatedBlockSize
 	}
 	return json.Marshal(toSerialize)
 }

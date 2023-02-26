@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -38,7 +38,7 @@ type ContractNftSellUtxo struct {
 	// Mvc value of the utxo(In string format)
 	SatoshiString *string `json:"satoshiString,omitempty"`
 	// The height of this utxo, -1 for unconfirmed utxo.
-	Height *int32 `json:"height,omitempty"`
+	Height *int64 `json:"height,omitempty"`
 	// Is current nft transfered into sell contract, If not ready, the following fields will be null
 	IsReady *bool `json:"isReady,omitempty"`
 	// SensibleId of the token
@@ -391,9 +391,9 @@ func (o *ContractNftSellUtxo) SetSatoshiString(v string) {
 }
 
 // GetHeight returns the Height field value if set, zero value otherwise.
-func (o *ContractNftSellUtxo) GetHeight() int32 {
+func (o *ContractNftSellUtxo) GetHeight() int64 {
 	if o == nil || o.Height == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Height
@@ -401,7 +401,7 @@ func (o *ContractNftSellUtxo) GetHeight() int32 {
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ContractNftSellUtxo) GetHeightOk() (*int32, bool) {
+func (o *ContractNftSellUtxo) GetHeightOk() (*int64, bool) {
 	if o == nil || o.Height == nil {
 		return nil, false
 	}
@@ -417,8 +417,8 @@ func (o *ContractNftSellUtxo) HasHeight() bool {
 	return false
 }
 
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
-func (o *ContractNftSellUtxo) SetHeight(v int32) {
+// SetHeight gets a reference to the given int64 and assigns it to the Height field.
+func (o *ContractNftSellUtxo) SetHeight(v int64) {
 	o.Height = &v
 }
 

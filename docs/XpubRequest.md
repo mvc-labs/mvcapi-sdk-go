@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Xpub** | Pointer to **string** | The xpub to register. | [optional] 
-**SkipHeight** | Pointer to **int32** | Skip transactions before this height. Default is 0. Ignore this while deleting xpub. | [optional] 
+**SkipHeight** | Pointer to **int64** | Skip transactions before this height. Default is 0. Ignore this while deleting xpub. | [optional] 
 **InitReceiveIndex** | Pointer to **int32** | Set the init maxReceiveIndex to {initReceiveIndex}(less than 5000) before the initial crawl , default is 200. This could increase cost. | [optional] 
 **InitChangeIndex** | Pointer to **int32** | Set the init maxChangeIndex(less than 5000) before the initial crawl , default is 200. This could increase cost. | [optional] 
 
@@ -55,20 +55,20 @@ HasXpub returns a boolean if a field has been set.
 
 ### GetSkipHeight
 
-`func (o *XpubRequest) GetSkipHeight() int32`
+`func (o *XpubRequest) GetSkipHeight() int64`
 
 GetSkipHeight returns the SkipHeight field if non-nil, zero value otherwise.
 
 ### GetSkipHeightOk
 
-`func (o *XpubRequest) GetSkipHeightOk() (*int32, bool)`
+`func (o *XpubRequest) GetSkipHeightOk() (*int64, bool)`
 
 GetSkipHeightOk returns a tuple with the SkipHeight field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSkipHeight
 
-`func (o *XpubRequest) SetSkipHeight(v int32)`
+`func (o *XpubRequest) SetSkipHeight(v int64)`
 
 SetSkipHeight sets SkipHeight field to given value.
 

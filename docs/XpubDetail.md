@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **ChangeIndex** | Pointer to **int32** | Next unused change index, path /1/index | [optional] 
 **MaxChangeIndex** | Pointer to **int32** | Max lookahead change index. | [optional] 
 **Mode** | Pointer to **int32** | Current xpub process mode, 0 means preparing(not ready), 1 means synchronizing(ready) | [optional] 
-**SkipHeight** | Pointer to **int32** | Skip blocks before skipHeight while searching transactions. This will speed up sync time. | [optional] 
-**ProcessHeight** | Pointer to **int32** | Xpub current processed height. | [optional] 
+**SkipHeight** | Pointer to **int64** | Skip blocks before skipHeight while searching transactions. This will speed up sync time. | [optional] 
+**ProcessHeight** | Pointer to **int64** | Xpub current processed height. | [optional] 
 
 ## Methods
 
@@ -184,20 +184,20 @@ HasMode returns a boolean if a field has been set.
 
 ### GetSkipHeight
 
-`func (o *XpubDetail) GetSkipHeight() int32`
+`func (o *XpubDetail) GetSkipHeight() int64`
 
 GetSkipHeight returns the SkipHeight field if non-nil, zero value otherwise.
 
 ### GetSkipHeightOk
 
-`func (o *XpubDetail) GetSkipHeightOk() (*int32, bool)`
+`func (o *XpubDetail) GetSkipHeightOk() (*int64, bool)`
 
 GetSkipHeightOk returns a tuple with the SkipHeight field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSkipHeight
 
-`func (o *XpubDetail) SetSkipHeight(v int32)`
+`func (o *XpubDetail) SetSkipHeight(v int64)`
 
 SetSkipHeight sets SkipHeight field to given value.
 
@@ -209,20 +209,20 @@ HasSkipHeight returns a boolean if a field has been set.
 
 ### GetProcessHeight
 
-`func (o *XpubDetail) GetProcessHeight() int32`
+`func (o *XpubDetail) GetProcessHeight() int64`
 
 GetProcessHeight returns the ProcessHeight field if non-nil, zero value otherwise.
 
 ### GetProcessHeightOk
 
-`func (o *XpubDetail) GetProcessHeightOk() (*int32, bool)`
+`func (o *XpubDetail) GetProcessHeightOk() (*int64, bool)`
 
 GetProcessHeightOk returns a tuple with the ProcessHeight field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProcessHeight
 
-`func (o *XpubDetail) SetProcessHeight(v int32)`
+`func (o *XpubDetail) SetProcessHeight(v int64)`
 
 SetProcessHeight sets ProcessHeight field to given value.
 

@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -20,7 +20,7 @@ type BlockTx struct {
 	// Transaction hash.
 	Txid *string `json:"txid,omitempty"`
 	// Block height of this tx.
-	Height *int32 `json:"height,omitempty"`
+	Height *int64 `json:"height,omitempty"`
 	// Hash of the block
 	BlockHash *string `json:"blockHash,omitempty"`
 	// transaction size
@@ -34,7 +34,7 @@ type BlockTx struct {
 	// Trasaction fee.
 	Fee *int64 `json:"fee,omitempty"`
 	// Confirmations of this transaction, -1 if unconfirmed.
-	Confirmations *int32 `json:"confirmations,omitempty"`
+	Confirmations *int64 `json:"confirmations,omitempty"`
 	// Block timestamp for the transaction, confirmed tx only.
 	Timestamp *int64 `json:"timestamp,omitempty"`
 }
@@ -89,9 +89,9 @@ func (o *BlockTx) SetTxid(v string) {
 }
 
 // GetHeight returns the Height field value if set, zero value otherwise.
-func (o *BlockTx) GetHeight() int32 {
+func (o *BlockTx) GetHeight() int64 {
 	if o == nil || o.Height == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Height
@@ -99,7 +99,7 @@ func (o *BlockTx) GetHeight() int32 {
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BlockTx) GetHeightOk() (*int32, bool) {
+func (o *BlockTx) GetHeightOk() (*int64, bool) {
 	if o == nil || o.Height == nil {
 		return nil, false
 	}
@@ -115,8 +115,8 @@ func (o *BlockTx) HasHeight() bool {
 	return false
 }
 
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
-func (o *BlockTx) SetHeight(v int32) {
+// SetHeight gets a reference to the given int64 and assigns it to the Height field.
+func (o *BlockTx) SetHeight(v int64) {
 	o.Height = &v
 }
 
@@ -313,9 +313,9 @@ func (o *BlockTx) SetFee(v int64) {
 }
 
 // GetConfirmations returns the Confirmations field value if set, zero value otherwise.
-func (o *BlockTx) GetConfirmations() int32 {
+func (o *BlockTx) GetConfirmations() int64 {
 	if o == nil || o.Confirmations == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Confirmations
@@ -323,7 +323,7 @@ func (o *BlockTx) GetConfirmations() int32 {
 
 // GetConfirmationsOk returns a tuple with the Confirmations field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *BlockTx) GetConfirmationsOk() (*int32, bool) {
+func (o *BlockTx) GetConfirmationsOk() (*int64, bool) {
 	if o == nil || o.Confirmations == nil {
 		return nil, false
 	}
@@ -339,8 +339,8 @@ func (o *BlockTx) HasConfirmations() bool {
 	return false
 }
 
-// SetConfirmations gets a reference to the given int32 and assigns it to the Confirmations field.
-func (o *BlockTx) SetConfirmations(v int32) {
+// SetConfirmations gets a reference to the given int64 and assigns it to the Confirmations field.
+func (o *BlockTx) SetConfirmations(v int64) {
 	o.Confirmations = &v
 }
 

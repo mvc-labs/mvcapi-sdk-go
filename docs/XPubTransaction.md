@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **MaxChangeIndex** | Pointer to **int32** | Max lookahead change index when processing this transaction. | [optional] 
 **Income** | Pointer to **int64** | Total received satoshis(Including all address) | [optional] 
 **Outcome** | Pointer to **int64** | Total spent satoshis(Including all address) | [optional] 
-**Height** | Pointer to **int32** | Height for this transaction. -1 for unconfirmed | [optional] 
+**Height** | Pointer to **int64** | Height for this transaction. -1 for unconfirmed | [optional] 
 **BlockIndex** | Pointer to **int32** | Block index for this transaction, -1 for unconfirmed | [optional] 
 **BlockTime** | Pointer to **int64** | Block timestamp for this transaction, if unconfirmed, the time is first seen time. | [optional] 
 **Flag** | Pointer to **string** | Paging flag, format blockTimestamp_blockIndex | [optional] 
@@ -186,20 +186,20 @@ HasOutcome returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *XPubTransaction) GetHeight() int32`
+`func (o *XPubTransaction) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *XPubTransaction) GetHeightOk() (*int32, bool)`
+`func (o *XPubTransaction) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *XPubTransaction) SetHeight(v int32)`
+`func (o *XPubTransaction) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 

@@ -1,6 +1,4 @@
-.gitignore
 .travis.yml
-README.md
 api/openapi.yaml
 api_address.go
 api_block.go
@@ -17,7 +15,8 @@ docs/AddressTx.md
 docs/AddressUtxo.md
 docs/AsyncBroadcastResult.md
 docs/BlockApi.md
-docs/BlockHeader.md
+docs/BlockHeaderIndex.md
+docs/BlockHeaderPage.md
 docs/BlockTx.md
 docs/BlockchainInfo.md
 docs/BroadcastResult.md
@@ -33,6 +32,7 @@ docs/ContractNftSellUtxo.md
 docs/ContractNftSellV2Utxo.md
 docs/ContractNftUtxo.md
 docs/ContractUniqueUtxo.md
+docs/ErrorResponse.md
 docs/MerchantApi.md
 docs/OutpointApi.md
 docs/OutputInfo.md
@@ -53,13 +53,12 @@ docs/XpubRequest.md
 docs/XpubResult.md
 docs/XpubUtxo.md
 git_push.sh
-go.mod
-go.sum
 model_address_balance.go
 model_address_tx.go
 model_address_utxo.go
 model_async_broadcast_result.go
-model_block_header.go
+model_block_header_index.go
+model_block_header_page.go
 model_block_tx.go
 model_blockchain_info.go
 model_broadcast_result.go
@@ -74,6 +73,7 @@ model_contract_nft_sell_utxo.go
 model_contract_nft_sell_v2_utxo.go
 model_contract_nft_utxo.go
 model_contract_unique_utxo.go
+model_error_response.go
 model_output_info.go
 model_output_info_detail.go
 model_tx_detail.go

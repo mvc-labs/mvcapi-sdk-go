@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -34,7 +34,7 @@ type OutputInfoDetail struct {
 	// vin index of the spent tx
 	SpentIndex *int32 `json:"spentIndex,omitempty"`
 	// height of the spent tx(-1 if unconfirmed, 0 if unspent)
-	SpentHeight *int32 `json:"spentHeight,omitempty"`
+	SpentHeight *int64 `json:"spentHeight,omitempty"`
 }
 
 // NewOutputInfoDetail instantiates a new OutputInfoDetail object
@@ -311,9 +311,9 @@ func (o *OutputInfoDetail) SetSpentIndex(v int32) {
 }
 
 // GetSpentHeight returns the SpentHeight field value if set, zero value otherwise.
-func (o *OutputInfoDetail) GetSpentHeight() int32 {
+func (o *OutputInfoDetail) GetSpentHeight() int64 {
 	if o == nil || o.SpentHeight == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SpentHeight
@@ -321,7 +321,7 @@ func (o *OutputInfoDetail) GetSpentHeight() int32 {
 
 // GetSpentHeightOk returns a tuple with the SpentHeight field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *OutputInfoDetail) GetSpentHeightOk() (*int32, bool) {
+func (o *OutputInfoDetail) GetSpentHeightOk() (*int64, bool) {
 	if o == nil || o.SpentHeight == nil {
 		return nil, false
 	}
@@ -337,8 +337,8 @@ func (o *OutputInfoDetail) HasSpentHeight() bool {
 	return false
 }
 
-// SetSpentHeight gets a reference to the given int32 and assigns it to the SpentHeight field.
-func (o *OutputInfoDetail) SetSpentHeight(v int32) {
+// SetSpentHeight gets a reference to the given int64 and assigns it to the SpentHeight field.
+func (o *OutputInfoDetail) SetSpentHeight(v int64) {
 	o.SpentHeight = &v
 }
 

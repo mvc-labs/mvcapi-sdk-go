@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **CodeHash** | Pointer to **string** | Codehash of this utxo. | [optional] 
 **Genesis** | Pointer to **string** | Genesis of this utxo. | [optional] 
 **SensibleId** | Pointer to **string** | SensibleId of the token | [optional] 
-**Height** | Pointer to **int32** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
+**Height** | Pointer to **int64** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
 **MetaTxid** | Pointer to **string** | The metanet tx describing the nft. | [optional] 
 **MetaOutputIndex** | Pointer to **int32** | Symbol of the token. | [optional] 
 **TokenSupply** | Pointer to **int64** | The total supply of this NFT. | [optional] 
@@ -190,20 +190,20 @@ HasSensibleId returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *ContractNftUtxo) GetHeight() int32`
+`func (o *ContractNftUtxo) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *ContractNftUtxo) GetHeightOk() (*int32, bool)`
+`func (o *ContractNftUtxo) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *ContractNftUtxo) SetHeight(v int32)`
+`func (o *ContractNftUtxo) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 

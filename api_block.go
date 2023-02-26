@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -34,7 +34,7 @@ type ApiBlockBlockIdGetRequest struct {
 	blockId    string
 }
 
-func (r ApiBlockBlockIdGetRequest) Execute() (BlockHeader, *_nethttp.Response, GenericOpenAPIError) {
+func (r ApiBlockBlockIdGetRequest) Execute() (BlockHeaderIndex, *_nethttp.Response, GenericOpenAPIError) {
 	return r.ApiService.BlockBlockIdGetExecute(r)
 }
 
@@ -54,9 +54,9 @@ func (a *BlockApiService) BlockBlockIdGet(ctx _context.Context, blockId string) 
 
 /*
  * Execute executes the request
- * @return BlockHeader
+ * @return BlockHeaderIndex
  */
-func (a *BlockApiService) BlockBlockIdGetExecute(r ApiBlockBlockIdGetRequest) (BlockHeader, *_nethttp.Response, GenericOpenAPIError) {
+func (a *BlockApiService) BlockBlockIdGetExecute(r ApiBlockBlockIdGetRequest) (BlockHeaderIndex, *_nethttp.Response, GenericOpenAPIError) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -64,7 +64,7 @@ func (a *BlockApiService) BlockBlockIdGetExecute(r ApiBlockBlockIdGetRequest) (B
 		localVarFileName     string
 		localVarFileBytes    []byte
 		executionError       GenericOpenAPIError
-		localVarReturnValue  BlockHeader
+		localVarReturnValue  BlockHeaderIndex
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BlockApiService.BlockBlockIdGet")
@@ -148,7 +148,7 @@ func (r ApiBlockGetRequest) Last(last int64) ApiBlockGetRequest {
 	return r
 }
 
-func (r ApiBlockGetRequest) Execute() ([]BlockHeader, *_nethttp.Response, GenericOpenAPIError) {
+func (r ApiBlockGetRequest) Execute() ([]BlockHeaderPage, *_nethttp.Response, GenericOpenAPIError) {
 	return r.ApiService.BlockGetExecute(r)
 }
 
@@ -166,9 +166,9 @@ func (a *BlockApiService) BlockGet(ctx _context.Context) ApiBlockGetRequest {
 
 /*
  * Execute executes the request
- * @return []BlockHeader
+ * @return []BlockHeaderPage
  */
-func (a *BlockApiService) BlockGetExecute(r ApiBlockGetRequest) ([]BlockHeader, *_nethttp.Response, GenericOpenAPIError) {
+func (a *BlockApiService) BlockGetExecute(r ApiBlockGetRequest) ([]BlockHeaderPage, *_nethttp.Response, GenericOpenAPIError) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
@@ -176,7 +176,7 @@ func (a *BlockApiService) BlockGetExecute(r ApiBlockGetRequest) ([]BlockHeader, 
 		localVarFileName     string
 		localVarFileBytes    []byte
 		executionError       GenericOpenAPIError
-		localVarReturnValue  []BlockHeader
+		localVarReturnValue  []BlockHeaderPage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BlockApiService.BlockGet")

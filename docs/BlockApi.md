@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## BlockBlockIdGet
 
-> BlockHeader BlockBlockIdGet(ctx, blockId).Execute()
+> BlockHeaderIndex BlockBlockIdGet(ctx, blockId).Execute()
 
 Get block request by height or hash
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `BlockApi.BlockBlockIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `BlockBlockIdGet`: BlockHeader
+    // response from `BlockBlockIdGet`: BlockHeaderIndex
     fmt.Fprintf(os.Stdout, "Response from `BlockApi.BlockBlockIdGet`: %v\n", resp)
 }
 ```
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlockHeader**](BlockHeader.md)
+[**BlockHeaderIndex**](BlockHeaderIndex.md)
 
 ### Authorization
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## BlockGet
 
-> []BlockHeader BlockGet(ctx).Last(last).Execute()
+> []BlockHeaderPage BlockGet(ctx).Last(last).Execute()
 
 Get recent block list by paging. 30 items per page.
 
@@ -106,7 +106,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `BlockApi.BlockGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `BlockGet`: []BlockHeader
+    // response from `BlockGet`: []BlockHeaderPage
     fmt.Fprintf(os.Stdout, "Response from `BlockApi.BlockGet`: %v\n", resp)
 }
 ```
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]BlockHeader**](BlockHeader.md)
+[**[]BlockHeaderPage**](BlockHeaderPage.md)
 
 ### Authorization
 

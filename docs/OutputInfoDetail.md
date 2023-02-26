@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Spent** | Pointer to **bool** | this output is spent or not, true if spent | [optional] 
 **SpentTxid** | Pointer to **string** | txid that spent this output | [optional] 
 **SpentIndex** | Pointer to **int32** | vin index of the spent tx | [optional] 
-**SpentHeight** | Pointer to **int32** | height of the spent tx(-1 if unconfirmed, 0 if unspent) | [optional] 
+**SpentHeight** | Pointer to **int64** | height of the spent tx(-1 if unconfirmed, 0 if unspent) | [optional] 
 
 ## Methods
 
@@ -235,20 +235,20 @@ HasSpentIndex returns a boolean if a field has been set.
 
 ### GetSpentHeight
 
-`func (o *OutputInfoDetail) GetSpentHeight() int32`
+`func (o *OutputInfoDetail) GetSpentHeight() int64`
 
 GetSpentHeight returns the SpentHeight field if non-nil, zero value otherwise.
 
 ### GetSpentHeightOk
 
-`func (o *OutputInfoDetail) GetSpentHeightOk() (*int32, bool)`
+`func (o *OutputInfoDetail) GetSpentHeightOk() (*int64, bool)`
 
 GetSpentHeightOk returns a tuple with the SpentHeight field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpentHeight
 
-`func (o *OutputInfoDetail) SetSpentHeight(v int32)`
+`func (o *OutputInfoDetail) SetSpentHeight(v int64)`
 
 SetSpentHeight sets SpentHeight field to given value.
 

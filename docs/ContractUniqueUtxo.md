@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **CodeHash** | Pointer to **string** | Codehash of this utxo. | [optional] 
 **Genesis** | Pointer to **string** | Genesis of this utxo. | [optional] 
 **SensibleId** | Pointer to **string** | SensibleId of the token | [optional] 
-**Height** | Pointer to **int32** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
+**Height** | Pointer to **int64** | The height of this utxo, -1 for unconfirmed utxo. | [optional] 
 **CustomData** | Pointer to **string** | The hex encoded customData | [optional] 
 **Satoshi** | Pointer to **int64** | Mvc value of the utxo(Irrelavant to token value) | [optional] 
 **SatoshiString** | Pointer to **string** | Mvc value of the utxo(In string format) | [optional] 
@@ -160,20 +160,20 @@ HasSensibleId returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *ContractUniqueUtxo) GetHeight() int32`
+`func (o *ContractUniqueUtxo) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *ContractUniqueUtxo) GetHeightOk() (*int32, bool)`
+`func (o *ContractUniqueUtxo) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *ContractUniqueUtxo) SetHeight(v int32)`
+`func (o *ContractUniqueUtxo) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 

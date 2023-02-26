@@ -11,6 +11,10 @@ Name | Type | Description | Notes
 **Difficulty** | Pointer to **string** | decimal string for current difficulty | [optional] 
 **MedianTime** | Pointer to **int64** | current median time | [optional] 
 **Chainwork** | Pointer to **string** | current pow | [optional] 
+**NetworkHashPerSecond** | Pointer to **string** | estimated current network hash rate. | [optional] 
+**MempoolTxCount** | Pointer to **int32** | current mempool transaction count. | [optional] 
+**MempoolUsage** | Pointer to **int64** | current mempool usage. | [optional] 
+**EstimatedBlockSize** | Pointer to **int64** | next estimated block size. | [optional] 
 
 ## Methods
 
@@ -205,6 +209,106 @@ SetChainwork sets Chainwork field to given value.
 `func (o *BlockchainInfo) HasChainwork() bool`
 
 HasChainwork returns a boolean if a field has been set.
+
+### GetNetworkHashPerSecond
+
+`func (o *BlockchainInfo) GetNetworkHashPerSecond() string`
+
+GetNetworkHashPerSecond returns the NetworkHashPerSecond field if non-nil, zero value otherwise.
+
+### GetNetworkHashPerSecondOk
+
+`func (o *BlockchainInfo) GetNetworkHashPerSecondOk() (*string, bool)`
+
+GetNetworkHashPerSecondOk returns a tuple with the NetworkHashPerSecond field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetworkHashPerSecond
+
+`func (o *BlockchainInfo) SetNetworkHashPerSecond(v string)`
+
+SetNetworkHashPerSecond sets NetworkHashPerSecond field to given value.
+
+### HasNetworkHashPerSecond
+
+`func (o *BlockchainInfo) HasNetworkHashPerSecond() bool`
+
+HasNetworkHashPerSecond returns a boolean if a field has been set.
+
+### GetMempoolTxCount
+
+`func (o *BlockchainInfo) GetMempoolTxCount() int32`
+
+GetMempoolTxCount returns the MempoolTxCount field if non-nil, zero value otherwise.
+
+### GetMempoolTxCountOk
+
+`func (o *BlockchainInfo) GetMempoolTxCountOk() (*int32, bool)`
+
+GetMempoolTxCountOk returns a tuple with the MempoolTxCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMempoolTxCount
+
+`func (o *BlockchainInfo) SetMempoolTxCount(v int32)`
+
+SetMempoolTxCount sets MempoolTxCount field to given value.
+
+### HasMempoolTxCount
+
+`func (o *BlockchainInfo) HasMempoolTxCount() bool`
+
+HasMempoolTxCount returns a boolean if a field has been set.
+
+### GetMempoolUsage
+
+`func (o *BlockchainInfo) GetMempoolUsage() int64`
+
+GetMempoolUsage returns the MempoolUsage field if non-nil, zero value otherwise.
+
+### GetMempoolUsageOk
+
+`func (o *BlockchainInfo) GetMempoolUsageOk() (*int64, bool)`
+
+GetMempoolUsageOk returns a tuple with the MempoolUsage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMempoolUsage
+
+`func (o *BlockchainInfo) SetMempoolUsage(v int64)`
+
+SetMempoolUsage sets MempoolUsage field to given value.
+
+### HasMempoolUsage
+
+`func (o *BlockchainInfo) HasMempoolUsage() bool`
+
+HasMempoolUsage returns a boolean if a field has been set.
+
+### GetEstimatedBlockSize
+
+`func (o *BlockchainInfo) GetEstimatedBlockSize() int64`
+
+GetEstimatedBlockSize returns the EstimatedBlockSize field if non-nil, zero value otherwise.
+
+### GetEstimatedBlockSizeOk
+
+`func (o *BlockchainInfo) GetEstimatedBlockSizeOk() (*int64, bool)`
+
+GetEstimatedBlockSizeOk returns a tuple with the EstimatedBlockSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEstimatedBlockSize
+
+`func (o *BlockchainInfo) SetEstimatedBlockSize(v int64)`
+
+SetEstimatedBlockSize sets EstimatedBlockSize field to given value.
+
+### HasEstimatedBlockSize
+
+`func (o *BlockchainInfo) HasEstimatedBlockSize() bool`
+
+HasEstimatedBlockSize returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

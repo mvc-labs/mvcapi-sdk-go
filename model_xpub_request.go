@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -20,7 +20,7 @@ type XpubRequest struct {
 	// The xpub to register.
 	Xpub *string `json:"xpub,omitempty"`
 	// Skip transactions before this height. Default is 0. Ignore this while deleting xpub.
-	SkipHeight *int32 `json:"skipHeight,omitempty"`
+	SkipHeight *int64 `json:"skipHeight,omitempty"`
 	// Set the init maxReceiveIndex to {initReceiveIndex}(less than 5000) before the initial crawl , default is 200. This could increase cost.
 	InitReceiveIndex *int32 `json:"initReceiveIndex,omitempty"`
 	// Set the init maxChangeIndex(less than 5000) before the initial crawl , default is 200. This could increase cost.
@@ -77,9 +77,9 @@ func (o *XpubRequest) SetXpub(v string) {
 }
 
 // GetSkipHeight returns the SkipHeight field value if set, zero value otherwise.
-func (o *XpubRequest) GetSkipHeight() int32 {
+func (o *XpubRequest) GetSkipHeight() int64 {
 	if o == nil || o.SkipHeight == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SkipHeight
@@ -87,7 +87,7 @@ func (o *XpubRequest) GetSkipHeight() int32 {
 
 // GetSkipHeightOk returns a tuple with the SkipHeight field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *XpubRequest) GetSkipHeightOk() (*int32, bool) {
+func (o *XpubRequest) GetSkipHeightOk() (*int64, bool) {
 	if o == nil || o.SkipHeight == nil {
 		return nil, false
 	}
@@ -103,8 +103,8 @@ func (o *XpubRequest) HasSkipHeight() bool {
 	return false
 }
 
-// SetSkipHeight gets a reference to the given int32 and assigns it to the SkipHeight field.
-func (o *XpubRequest) SetSkipHeight(v int32) {
+// SetSkipHeight gets a reference to the given int64 and assigns it to the SkipHeight field.
+func (o *XpubRequest) SetSkipHeight(v int64) {
 	o.SkipHeight = &v
 }
 

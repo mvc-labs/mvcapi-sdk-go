@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Txid** | Pointer to **string** | txid of the utxo | [optional] 
 **OutIndex** | Pointer to **int32** | output index in the tx | [optional] 
 **Value** | Pointer to **int64** | Value of the utxo | [optional] 
-**Height** | Pointer to **int32** | Height of the utxo, -1 if not confirmed | [optional] 
+**Height** | Pointer to **int64** | Height of the utxo, -1 if not confirmed | [optional] 
 
 ## Methods
 
@@ -157,20 +157,20 @@ HasValue returns a boolean if a field has been set.
 
 ### GetHeight
 
-`func (o *AddressUtxo) GetHeight() int32`
+`func (o *AddressUtxo) GetHeight() int64`
 
 GetHeight returns the Height field if non-nil, zero value otherwise.
 
 ### GetHeightOk
 
-`func (o *AddressUtxo) GetHeightOk() (*int32, bool)`
+`func (o *AddressUtxo) GetHeightOk() (*int64, bool)`
 
 GetHeightOk returns a tuple with the Height field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHeight
 
-`func (o *AddressUtxo) SetHeight(v int32)`
+`func (o *AddressUtxo) SetHeight(v int64)`
 
 SetHeight sets Height field to given value.
 

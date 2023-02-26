@@ -1,9 +1,9 @@
 /*
- * MetaSV API Spec
+ * MetaSV for MVC API Spec
  *
  * API definition for MetaSV provided apis
  *
- * API version: 2.2.0
+ * API version: 3.0.2
  * Contact: heqiming@metasv.com
  */
 
@@ -30,7 +30,7 @@ type XPubTransaction struct {
 	// Total spent satoshis(Including all address)
 	Outcome *int64 `json:"outcome,omitempty"`
 	// Height for this transaction. -1 for unconfirmed
-	Height *int32 `json:"height,omitempty"`
+	Height *int64 `json:"height,omitempty"`
 	// Block index for this transaction, -1 for unconfirmed
 	BlockIndex *int32 `json:"blockIndex,omitempty"`
 	// Block timestamp for this transaction, if unconfirmed, the time is first seen time.
@@ -249,9 +249,9 @@ func (o *XPubTransaction) SetOutcome(v int64) {
 }
 
 // GetHeight returns the Height field value if set, zero value otherwise.
-func (o *XPubTransaction) GetHeight() int32 {
+func (o *XPubTransaction) GetHeight() int64 {
 	if o == nil || o.Height == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Height
@@ -259,7 +259,7 @@ func (o *XPubTransaction) GetHeight() int32 {
 
 // GetHeightOk returns a tuple with the Height field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *XPubTransaction) GetHeightOk() (*int32, bool) {
+func (o *XPubTransaction) GetHeightOk() (*int64, bool) {
 	if o == nil || o.Height == nil {
 		return nil, false
 	}
@@ -275,8 +275,8 @@ func (o *XPubTransaction) HasHeight() bool {
 	return false
 }
 
-// SetHeight gets a reference to the given int32 and assigns it to the Height field.
-func (o *XPubTransaction) SetHeight(v int32) {
+// SetHeight gets a reference to the given int64 and assigns it to the Height field.
+func (o *XPubTransaction) SetHeight(v int64) {
 	o.Height = &v
 }
 
