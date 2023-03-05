@@ -3,7 +3,7 @@
  *
  * API definition for MetaSV provided apis
  *
- * API version: 3.0.2
+ * API version: 3.0.3
  * Contact: heqiming@metasv.com
  */
 
@@ -102,7 +102,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "OpenAPI-Generator/3.0.2/go",
+		UserAgent:     "OpenAPI-Generator/3.0.3/go",
 		Debug:         false,
 		Servers: ServerConfigurations{
 			{

@@ -8,7 +8,7 @@ info:
     name: MIT License
     url: https://opensource.org/licenses/MIT
   title: MetaSV for MVC API Spec
-  version: 3.0.2
+  version: 3.0.3
 servers:
 - url: https://api-mvc-testnet.metasv.com
 - url: https://api-mvc.metasv.com
@@ -741,6 +741,64 @@ paths:
       - bearerAuth: []
       summary: Get all contract token balances for specific address ignoring all unconfirmed
         txs.
+      tags:
+      - contract
+  /contract/ft/address/{address}/{codeHash}/{genesis}/tx:
+    get:
+      parameters:
+      - description: the requested address
+        explode: false
+        in: path
+        name: address
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Filter by contract code hash
+        explode: false
+        in: path
+        name: codeHash
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Filter by contract genesis
+        explode: false
+        in: path
+        name: genesis
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The last id of the last query(Paging flag)
+        explode: true
+        in: query
+        name: flag
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ContractFtAddressTx'
+                maxItems: 100
+                type: array
+          description: Get contract ft history success.
+        "401":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ErrorResponse'
+                type: array
+          description: Access token is missing or invalid
+      security:
+      - bearerAuth: []
+      summary: Get all contract token balances for specific address.
       tags:
       - contract
   /contract/nft/address/{address}/utxo:
@@ -2233,6 +2291,51 @@ components:
           type: integer
         unconfirmedString:
           description: Unconfirmed balance of the token(In string format).
+          type: string
+      type: object
+    ContractFtAddressTx:
+      description: Transaction history of the address for specific ft.
+      example:
+        income: 1
+        genesis: genesis
+        flag: flag
+        address: address
+        codeHash: codeHash
+        txid: txid
+        time: 0
+        outcome: 5
+        height: 6
+      properties:
+        flag:
+          description: Paging flag
+          type: string
+        address:
+          description: The address of the record
+          type: string
+        codeHash:
+          description: Specific codeHash
+          type: string
+        genesis:
+          description: specific genesis
+          type: string
+        time:
+          description: timestamp of the tx
+          format: int64
+          type: integer
+        height:
+          description: Block Height of the tx, -1 if not confirmed
+          format: int64
+          type: integer
+        income:
+          description: total income of the address from this tx
+          format: int64
+          type: integer
+        outcome:
+          description: total outcome of the address from this tx
+          format: int64
+          type: integer
+        txid:
+          description: txid of this record
           type: string
       type: object
     ContractNftUtxo:

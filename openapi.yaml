@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: MetaSV for MVC API Spec
   description: API definition for MetaSV provided apis
-  version: 3.0.2
+  version: 3.0.3
   license:
     name: MIT License
     url: https://opensource.org/licenses/MIT
@@ -646,6 +646,51 @@ paths:
               schema:
                 type: integer
                 format: int64
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  '/contract/ft/address/{address}/{codeHash}/{genesis}/tx':
+    get:
+      security:
+        - bearerAuth: [ ]
+      tags:
+        - contract
+      summary: Get all contract token balances for specific address.
+      parameters:
+        - name: address
+          in: path
+          description: the requested address
+          required: true
+          schema:
+            type: string
+        - name: codeHash
+          in: path
+          description: Filter by contract code hash
+          required: true
+          schema:
+            type: string
+        - name: genesis
+          in: path
+          description: Filter by contract genesis
+          required: true
+          schema:
+            type: string
+        - name: flag
+          in: query
+          description: The last id of the last query(Paging flag)
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Get contract ft history success.
+          content:
+            application/json:
+              schema:
+                type: array
+                maxItems: 100
+                items:
+                  $ref: '#/components/schemas/ContractFtAddressTx'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
 
@@ -1832,6 +1877,43 @@ components:
         unconfirmedString:
           description: Unconfirmed balance of the token(In string format).
           type: string
+
+    ContractFtAddressTx:
+      type: object
+      description: Transaction history of the address for specific ft.
+      properties:
+        flag:
+          type: string
+          description: Paging flag
+        address:
+          type: string
+          description: The address of the record
+        codeHash:
+          type: string
+          description: Specific codeHash
+        genesis:
+          type: string
+          description: specific genesis
+        time:
+          type: integer
+          format: int64
+          description: timestamp of the tx
+        height:
+          type: integer
+          format: int64
+          description: Block Height of the tx, -1 if not confirmed
+        income:
+          type: integer
+          format: int64
+          description: total income of the address from this tx
+        outcome:
+          type: integer
+          format: int64
+          description: total outcome of the address from this tx
+        txid:
+          type: string
+          description: txid of this record
+
 
     ContractNftUtxo:
       description: Contract non fungible token Utxo belongs to the specified address

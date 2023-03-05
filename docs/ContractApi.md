@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ContractFtAddressAddressBalanceConfirmedGet**](ContractApi.md#ContractFtAddressAddressBalanceConfirmedGet) | **Get** /contract/ft/address/{address}/balance/confirmed | Get all contract token balances for specific address ignoring all unconfirmed txs.
 [**ContractFtAddressAddressBalanceGet**](ContractApi.md#ContractFtAddressAddressBalanceGet) | **Get** /contract/ft/address/{address}/balance | Get all contract token balances for specific address.
+[**ContractFtAddressAddressCodeHashGenesisTxGet**](ContractApi.md#ContractFtAddressAddressCodeHashGenesisTxGet) | **Get** /contract/ft/address/{address}/{codeHash}/{genesis}/tx | Get all contract token balances for specific address.
 [**ContractFtAddressAddressUtxoGet**](ContractApi.md#ContractFtAddressAddressUtxoGet) | **Get** /contract/ft/address/{address}/utxo | Get all contract token utxos for specific address.
 [**ContractNftAddressAddressCountConfirmedGet**](ContractApi.md#ContractNftAddressAddressCountConfirmedGet) | **Get** /contract/nft/address/{address}/count/confirmed | Get confirmed utxo count for specific nft(ignore all unconfirmed txs).
 [**ContractNftAddressAddressSummaryGet**](ContractApi.md#ContractNftAddressAddressSummaryGet) | **Get** /contract/nft/address/{address}/summary | Get nft summary(NFT count group by genesis) for address.
@@ -150,6 +151,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ContractFtBalance**](ContractFtBalance.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ContractFtAddressAddressCodeHashGenesisTxGet
+
+> []ContractFtAddressTx ContractFtAddressAddressCodeHashGenesisTxGet(ctx, address, codeHash, genesis).Flag(flag).Execute()
+
+Get all contract token balances for specific address.
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    address := "address_example" // string | the requested address
+    codeHash := "codeHash_example" // string | Filter by contract code hash
+    genesis := "genesis_example" // string | Filter by contract genesis
+    flag := "flag_example" // string | The last id of the last query(Paging flag) (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ContractApi.ContractFtAddressAddressCodeHashGenesisTxGet(context.Background(), address, codeHash, genesis).Flag(flag).Execute()
+    if err.Error() != "" {
+        fmt.Fprintf(os.Stderr, "Error when calling `ContractApi.ContractFtAddressAddressCodeHashGenesisTxGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ContractFtAddressAddressCodeHashGenesisTxGet`: []ContractFtAddressTx
+    fmt.Fprintf(os.Stdout, "Response from `ContractApi.ContractFtAddressAddressCodeHashGenesisTxGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**address** | **string** | the requested address | 
+**codeHash** | **string** | Filter by contract code hash | 
+**genesis** | **string** | Filter by contract genesis | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiContractFtAddressAddressCodeHashGenesisTxGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **flag** | **string** | The last id of the last query(Paging flag) | 
+
+### Return type
+
+[**[]ContractFtAddressTx**](ContractFtAddressTx.md)
 
 ### Authorization
 

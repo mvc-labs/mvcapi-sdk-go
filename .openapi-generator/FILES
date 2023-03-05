@@ -23,6 +23,7 @@ docs/BroadcastResult.md
 docs/ClientPubkeyRequest.md
 docs/ClientPubkeyResult.md
 docs/ContractApi.md
+docs/ContractFtAddressTx.md
 docs/ContractFtBalance.md
 docs/ContractFtUtxo.md
 docs/ContractNftAddressSummary.md
@@ -64,6 +65,7 @@ model_blockchain_info.go
 model_broadcast_result.go
 model_client_pubkey_request.go
 model_client_pubkey_result.go
+model_contract_ft_address_tx.go
 model_contract_ft_balance.go
 model_contract_ft_utxo.go
 model_contract_nft_address_summary.go
