@@ -1,10 +1,10 @@
 # \TxApi
 
-All URIs are relative to *https://api-mvc-testnet.metasv.com*
+All URIs are relative to *https://testnet.mvcapi.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**TxBroadcastBatchPost**](TxApi.md#TxBroadcastBatchPost) | **Post** /tx/broadcast/batch | Broadcast a batch of tx to metasv fullnode. The tx will be processed one by one.
+[**TxBroadcastBatchPost**](TxApi.md#TxBroadcastBatchPost) | **Post** /tx/broadcast/batch | Broadcast a batch of tx to metasv fullnode. This endpoint use rpc sendrawtransactions.
 [**TxBroadcastPost**](TxApi.md#TxBroadcastPost) | **Post** /tx/broadcast | Broadcast tx to metasv fullnode.
 [**TxTxidGet**](TxApi.md#TxTxidGet) | **Get** /tx/{txid} | Get transaction detail by specific txid.
 [**TxTxidRawGet**](TxApi.md#TxTxidRawGet) | **Get** /tx/{txid}/raw | Get transaction raw hex by specific txid.
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 
 ## TxBroadcastBatchPost
 
-> []BroadcastResult TxBroadcastBatchPost(ctx).TxRaw(txRaw).Execute()
+> BatchBroadcastResult TxBroadcastBatchPost(ctx).TxRaw(txRaw).Execute()
 
-Broadcast a batch of tx to metasv fullnode. The tx will be processed one by one.
+Broadcast a batch of tx to metasv fullnode. This endpoint use rpc sendrawtransactions.
 
 
 
@@ -43,7 +43,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TxApi.TxBroadcastBatchPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `TxBroadcastBatchPost`: []BroadcastResult
+    // response from `TxBroadcastBatchPost`: BatchBroadcastResult
     fmt.Fprintf(os.Stdout, "Response from `TxApi.TxBroadcastBatchPost`: %v\n", resp)
 }
 ```
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]BroadcastResult**](BroadcastResult.md)
+[**BatchBroadcastResult**](BatchBroadcastResult.md)
 
 ### Authorization
 

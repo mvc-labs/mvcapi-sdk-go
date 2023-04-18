@@ -1,9 +1,9 @@
 /*
- * MetaSV for MVC API Spec
+ * MicrovisionChain API Document
  *
- * API definition for MetaSV provided apis
+ * API definition for MicrovisionChain provided apis
  *
- * API version: 3.0.3
+ * API version: 3.0.8
  * Contact: heqiming@metasv.com
  */
 
@@ -41,7 +41,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the MetaSV for MVC API Spec API v3.0.3
+// APIClient manages communication with the MicrovisionChain API Document API v3.0.8
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -58,6 +58,8 @@ type APIClient struct {
 	MerchantApi *MerchantApiService
 
 	OutpointApi *OutpointApiService
+
+	TreasuryApi *TreasuryApiService
 
 	TxApi *TxApiService
 
@@ -85,6 +87,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ContractApi = (*ContractApiService)(&c.common)
 	c.MerchantApi = (*MerchantApiService)(&c.common)
 	c.OutpointApi = (*OutpointApiService)(&c.common)
+	c.TreasuryApi = (*TreasuryApiService)(&c.common)
 	c.TxApi = (*TxApiService)(&c.common)
 	c.XpubApi = (*XpubApiService)(&c.common)
 

@@ -1,9 +1,9 @@
 /*
- * MetaSV for MVC API Spec
+ * MicrovisionChain API Document
  *
- * API definition for MetaSV provided apis
+ * API definition for MicrovisionChain provided apis
  *
- * API version: 3.0.3
+ * API version: 3.0.8
  * Contact: heqiming@metasv.com
  */
 
@@ -102,15 +102,15 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader: make(map[string]string),
-		UserAgent:     "OpenAPI-Generator/3.0.3/go",
+		UserAgent:     "OpenAPI-Generator/3.0.8/go",
 		Debug:         false,
 		Servers: ServerConfigurations{
 			{
-				URL:         "https://api-mvc-testnet.metasv.com",
+				URL:         "https://testnet.mvcapi.com",
 				Description: "No description provided",
 			},
 			{
-				URL:         "https://api-mvc.metasv.com",
+				URL:         "https://mainnet.mvcapi.com",
 				Description: "No description provided",
 			},
 		},

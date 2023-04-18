@@ -2,19 +2,21 @@ openapi: 3.0.3
 info:
   contact:
     email: heqiming@metasv.com
-    name: MetaSV team
-  description: API definition for MetaSV provided apis
+    name: MicrovisionChain team
+  description: API definition for MicrovisionChain provided apis
   license:
     name: MIT License
     url: https://opensource.org/licenses/MIT
-  title: MetaSV for MVC API Spec
-  version: 3.0.3
+  title: MicrovisionChain API Document
+  version: 3.0.8
 servers:
-- url: https://api-mvc-testnet.metasv.com
-- url: https://api-mvc.metasv.com
+- url: https://testnet.mvcapi.com
+- url: https://mainnet.mvcapi.com
 tags:
 - description: block related apis
   name: block
+- description: treasury related apis for auditing
+  name: treasury
 - description: transaction related apis
   name: tx
 - description: address related apis
@@ -96,6 +98,37 @@ paths:
       summary: Get block request by height or hash
       tags:
       - block
+  /treasury:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TreasuryInfo'
+          description: Get treasury info success.
+      security:
+      - bearerAuth: []
+      summary: Get current treasury info.
+      tags:
+      - treasury
+  /treasury/history:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/TreasuryHistory'
+                maxItems: 100
+                type: array
+          description: successfully get lists
+      security:
+      - bearerAuth: []
+      summary: Get all treasury history.
+      tags:
+      - treasury
   /tx/{txid}:
     get:
       description: This api is parsed from raw hex, you can use /tx/{txid}/raw to
@@ -185,7 +218,8 @@ paths:
       - tx
   /tx/broadcast:
     post:
-      description: This api will broadcast to metasv fullnode directly.
+      description: This api will broadcast to metasv fullnode directly. This endpoint
+        use rpc sendrawtransaction.
       requestBody:
         content:
           application/json:
@@ -224,14 +258,11 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/BroadcastResult'
-                type: array
+                $ref: '#/components/schemas/BatchBroadcastResult'
           description: Broadcast result list, txid returned with the original order
       security:
       - bearerAuth: []
-      summary: Broadcast a batch of tx to metasv fullnode. The tx will be processed
-        one by one.
+      summary: Broadcast a batch of tx to metasv fullnode. This endpoint use rpc sendrawtransactions.
       tags:
       - tx
   /address/{address}/balance:
@@ -1187,175 +1218,6 @@ paths:
       summary: Get all contract nft token utxos by codeHash and genesisId.
       tags:
       - contract
-  /contract/nft/sellV2/address/{address}/utxo:
-    get:
-      parameters:
-      - description: Owner address.
-        explode: false
-        in: path
-        name: address
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Filter by contract code hash
-        explode: true
-        in: query
-        name: codeHash
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Filter by contract genesis
-        explode: true
-        in: query
-        name: genesis
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: The flag of the last query Item(Paging flag)
-        explode: true
-        in: query
-        name: flag
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ContractNftSellV2Utxo'
-                maxItems: 300
-                type: array
-          description: Get contract nft sell utxo success.
-        "401":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ErrorResponse'
-                type: array
-          description: Access token is missing or invalid
-      security:
-      - bearerAuth: []
-      summary: Get all contract sell sell utxos for specific address.
-      tags:
-      - contract
-  /contract/nft/sellV2/genesis/{codeHash}/{genesis}/utxo:
-    get:
-      parameters:
-      - description: Code hash of the token.
-        explode: false
-        in: path
-        name: codeHash
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Contract genesis
-        explode: false
-        in: path
-        name: genesis
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Find exact token Index.
-        explode: true
-        in: query
-        name: tokenIndex
-        required: false
-        schema:
-          format: int64
-          type: integer
-        style: form
-      - description: Token index not bigger than this(include this).
-        explode: true
-        in: query
-        name: max
-        required: false
-        schema:
-          format: int64
-          type: integer
-        style: form
-      - description: Token index not less than this(include this).
-        explode: true
-        in: query
-        name: min
-        required: false
-        schema:
-          format: int64
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ContractNftSellV2Utxo'
-                maxItems: 300
-                type: array
-          description: Get contract nft sell utxo success.
-        "401":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ErrorResponse'
-                type: array
-          description: Access token is missing or invalid
-      security:
-      - bearerAuth: []
-      summary: Get all contract nft token utxos by codeHash and genesisId.
-      tags:
-      - contract
-  /contract/nft/auction/codeHash/{codeHash}/nftId/{nftId}/utxo:
-    get:
-      parameters:
-      - description: Code hash of the token.
-        explode: false
-        in: path
-        name: codeHash
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Nft id of this auction.
-        explode: false
-        in: path
-        name: nftId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ContractNftAuctionUtxo'
-                maxItems: 300
-                type: array
-          description: Get contract nft sell utxo success.
-        "401":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/ErrorResponse'
-                type: array
-          description: Access token is missing or invalid
-      security:
-      - bearerAuth: []
-      summary: Get all contract nft token utxos by codeHash and genesisId.
-      tags:
-      - contract
 components:
   responses:
     UnauthorizedError:
@@ -1599,6 +1461,65 @@ components:
           format: int64
           type: integer
       type: object
+    TreasuryInfo:
+      description: current treasury utxo info
+      example:
+        blockHash: blockHash
+        amount: 6
+        txid: txid
+        index: 0
+        height: 1
+        timestamp: 5
+      properties:
+        txid:
+          description: current treasury utxo txid
+          type: string
+        index:
+          description: current treasury utxo index
+          type: integer
+        amount:
+          description: current treasury amount
+          format: int64
+          type: integer
+        height:
+          description: current treasury utxo height
+          format: int64
+          type: integer
+        blockHash:
+          description: current treasury utxo block hash
+          type: string
+        timestamp:
+          description: current treasury utxo timestamp
+          format: int64
+          type: integer
+      type: object
+    TreasuryHistory:
+      description: treasury transaction history
+      example:
+        reason: reason
+        announcementUrl: announcementUrl
+        txid: txid
+        outcome: 0
+        timestamp: 6
+      properties:
+        txid:
+          description: treasury transaction txid.
+          type: string
+        outcome:
+          description: treasury transaction spent outcome in satoshi.
+          format: int64
+          type: integer
+        timestamp:
+          description: treasury transaction timestamp.
+          format: int64
+          type: integer
+        reason:
+          description: Reason for treasury transaction.
+          type: string
+        announcementUrl:
+          description: Announcement link for treasury transaction.
+          type: string
+      type: object
     TxDetail:
       description: Parsed tx info
       example:
@@ -1720,6 +1641,103 @@ components:
           type: string
         message:
           description: return messages if broadcast failed
+          type: string
+      type: object
+    BatchBroadcastResult:
+      description: Batch broadcast result
+      example:
+        known:
+        - known
+        - known
+        invalid:
+        - collideWith:
+          - size: 6
+            txid: txid
+            hex: hex
+          - size: 6
+            txid: txid
+            hex: hex
+          txid: txid
+          reject_reason: reject_reason
+          reject_code: 0
+        - collideWith:
+          - size: 6
+            txid: txid
+            hex: hex
+          - size: 6
+            txid: txid
+            hex: hex
+          txid: txid
+          reject_reason: reject_reason
+          reject_code: 0
+        evicted:
+        - evicted
+        - evicted
+      properties:
+        known:
+          description: Already known transactions detected during processing (if there
+            are any)
+          items:
+            type: string
+          type: array
+        evicted:
+          description: Transactions accepted by the mempool and then evicted due to
+            insufficient fee (if there are any)
+          items:
+            type: string
+          type: array
+        invalid:
+          description: Transactions that failed to be accepted by the mempool (if
+            there are any)
+          items:
+            $ref: '#/components/schemas/InvalidBroadCast'
+          type: array
+      type: object
+    InvalidBroadCast:
+      description: Invalid transactions detected during validation (if there are any)
+      example:
+        collideWith:
+        - size: 6
+          txid: txid
+          hex: hex
+        - size: 6
+          txid: txid
+          hex: hex
+        txid: txid
+        reject_reason: reject_reason
+        reject_code: 0
+      properties:
+        txid:
+          description: return txid if broadcast success
+          type: string
+        reject_code:
+          description: return messages if broadcast failed
+          type: integer
+        reject_reason:
+          description: return messages if broadcast failed
+          type: string
+        collideWith:
+          description: return messages if broadcast failed
+          items:
+            $ref: '#/components/schemas/InvalidBroadcastCollide'
+          type: array
+      type: object
+    InvalidBroadcastCollide:
+      description: This field is only present in case of double spent transaction
+        and contains transactions we collided with
+      example:
+        size: 6
+        txid: txid
+        hex: hex
+      properties:
+        txid:
+          description: The transaction id
+          type: string
+        size:
+          description: Transaction size in bytes
+          type: integer
+        hex:
+          description: Whole transaction in hex
           type: string
       type: object
     AsyncBroadcastResult:
@@ -2548,28 +2566,6 @@ components:
       type: object
     ContractNftSellV2Utxo:
       description: Contract nft sell v2 Utxo belongs to the specified address
-      example:
-        satoshi: 5
-        metaTxid: metaTxid
-        address: address
-        flag: flag
-        metaOutputIndex: 7
-        codeHash: codeHash
-        sellerAddressPkh: sellerAddressPkh
-        isReady: true
-        contractAddress: contractAddress
-        txid: txid
-        nftId: nftId
-        tokenIndex: 6
-        sensibleId: sensibleId
-        feeRate: 5
-        genesis: genesis
-        price: 1
-        tokenSupply: 9
-        satoshiString: satoshiString
-        feeAddressPkh: feeAddressPkh
-        txIndex: 0
-        height: 2
       properties:
         address:
           description: Address string of this utxo
@@ -2643,30 +2639,6 @@ components:
       type: object
     ContractNftAuctionUtxo:
       description: Contract nft auction Utxo belongs to the specified address
-      example:
-        bidMvcPrice: 6
-        satoshi: 3
-        address: address
-        bidTimestamp: 1
-        flag: flag
-        codeHash: codeHash
-        isReady: true
-        txid: txid
-        nftId: nftId
-        contractAddress: contractAddress
-        sensibleId: sensibleId
-        feeRate: 2
-        startMvcPrice: 9
-        senderAddressPkh: senderAddressPkh
-        genesis: genesis
-        feeAmount: 5
-        nftCodeHash: nftCodeHash
-        bidderAddressPkh: bidderAddressPkh
-        satoshiString: satoshiString
-        feeAddressPkh: feeAddressPkh
-        endTimestamp: 5
-        txIndex: 0
-        height: 7
       properties:
         address:
           description: Address string of this utxo

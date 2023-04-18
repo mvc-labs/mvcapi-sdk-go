@@ -1,9 +1,9 @@
 /*
- * MetaSV for MVC API Spec
+ * MicrovisionChain API Document
  *
- * API definition for MetaSV provided apis
+ * API definition for MicrovisionChain provided apis
  *
- * API version: 3.0.3
+ * API version: 3.0.8
  * Contact: heqiming@metasv.com
  */
 
@@ -39,12 +39,12 @@ func (r ApiTxBroadcastBatchPostRequest) TxRaw(txRaw []TxRaw) ApiTxBroadcastBatch
 	return r
 }
 
-func (r ApiTxBroadcastBatchPostRequest) Execute() ([]BroadcastResult, *_nethttp.Response, GenericOpenAPIError) {
+func (r ApiTxBroadcastBatchPostRequest) Execute() (BatchBroadcastResult, *_nethttp.Response, GenericOpenAPIError) {
 	return r.ApiService.TxBroadcastBatchPostExecute(r)
 }
 
 /*
- * TxBroadcastBatchPost Broadcast a batch of tx to metasv fullnode. The tx will be processed one by one.
+ * TxBroadcastBatchPost Broadcast a batch of tx to metasv fullnode. This endpoint use rpc sendrawtransactions.
  * This api will broadcast to metasv fullnode directly.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiTxBroadcastBatchPostRequest
@@ -58,9 +58,9 @@ func (a *TxApiService) TxBroadcastBatchPost(ctx _context.Context) ApiTxBroadcast
 
 /*
  * Execute executes the request
- * @return []BroadcastResult
+ * @return BatchBroadcastResult
  */
-func (a *TxApiService) TxBroadcastBatchPostExecute(r ApiTxBroadcastBatchPostRequest) ([]BroadcastResult, *_nethttp.Response, GenericOpenAPIError) {
+func (a *TxApiService) TxBroadcastBatchPostExecute(r ApiTxBroadcastBatchPostRequest) (BatchBroadcastResult, *_nethttp.Response, GenericOpenAPIError) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *TxApiService) TxBroadcastBatchPostExecute(r ApiTxBroadcastBatchPostRequ
 		localVarFileName     string
 		localVarFileBytes    []byte
 		executionError       GenericOpenAPIError
-		localVarReturnValue  []BroadcastResult
+		localVarReturnValue  BatchBroadcastResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TxApiService.TxBroadcastBatchPost")
@@ -159,7 +159,7 @@ func (r ApiTxBroadcastPostRequest) Execute() (BroadcastResult, *_nethttp.Respons
 
 /*
  * TxBroadcastPost Broadcast tx to metasv fullnode.
- * This api will broadcast to metasv fullnode directly.
+ * This api will broadcast to metasv fullnode directly. This endpoint use rpc sendrawtransaction.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiTxBroadcastPostRequest
  */

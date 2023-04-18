@@ -5,6 +5,7 @@ api_block.go
 api_contract.go
 api_merchant.go
 api_outpoint.go
+api_treasury.go
 api_tx.go
 api_xpub.go
 client.go
@@ -14,6 +15,7 @@ docs/AddressBalance.md
 docs/AddressTx.md
 docs/AddressUtxo.md
 docs/AsyncBroadcastResult.md
+docs/BatchBroadcastResult.md
 docs/BlockApi.md
 docs/BlockHeaderIndex.md
 docs/BlockHeaderPage.md
@@ -34,10 +36,15 @@ docs/ContractNftSellV2Utxo.md
 docs/ContractNftUtxo.md
 docs/ContractUniqueUtxo.md
 docs/ErrorResponse.md
+docs/InvalidBroadCast.md
+docs/InvalidBroadcastCollide.md
 docs/MerchantApi.md
 docs/OutpointApi.md
 docs/OutputInfo.md
 docs/OutputInfoDetail.md
+docs/TreasuryApi.md
+docs/TreasuryHistory.md
+docs/TreasuryInfo.md
 docs/TxApi.md
 docs/TxDetail.md
 docs/TxInput.md
@@ -58,6 +65,7 @@ model_address_balance.go
 model_address_tx.go
 model_address_utxo.go
 model_async_broadcast_result.go
+model_batch_broadcast_result.go
 model_block_header_index.go
 model_block_header_page.go
 model_block_tx.go
@@ -76,8 +84,12 @@ model_contract_nft_sell_v2_utxo.go
 model_contract_nft_utxo.go
 model_contract_unique_utxo.go
 model_error_response.go
+model_invalid_broad_cast.go
+model_invalid_broadcast_collide.go
 model_output_info.go
 model_output_info_detail.go
+model_treasury_history.go
+model_treasury_info.go
 model_tx_detail.go
 model_tx_input.go
 model_tx_output.go
