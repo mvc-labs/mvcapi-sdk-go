@@ -1,6 +1,6 @@
-# Go API client for metasv
+# Go API client for MvcApi
 
-API definition for MetaSV provided apis
+API definition for MvcApi provided apis
 
 
 ## Installation
@@ -11,7 +11,7 @@ Install the following dependencies:
 go get github.com/stretchr/testify/assert
 go get golang.org/x/oauth2
 go get golang.org/x/net/context
-go get github.com/metasv/metasv-mvc-sdk-go
+go get github.com/mvc-labs/mvcapi-sdk-go
 ```
 
 ## Documentation For Authorization

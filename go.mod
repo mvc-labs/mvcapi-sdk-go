@@ -1,4 +1,4 @@
-module github.com/metasv/metasv-mvc-sdk-go
+module github.com/mvc-labs/mvcapi-sdk-go
 
 go 1.20
 

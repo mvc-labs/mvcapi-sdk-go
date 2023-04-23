@@ -4,11 +4,11 @@ All URIs are relative to *https://testnet.mvcapi.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**TxBroadcastBatchPost**](TxApi.md#TxBroadcastBatchPost) | **Post** /tx/broadcast/batch | Broadcast a batch of tx to metasv fullnode. This endpoint use rpc sendrawtransactions.
-[**TxBroadcastPost**](TxApi.md#TxBroadcastPost) | **Post** /tx/broadcast | Broadcast tx to metasv fullnode.
+[**TxBroadcastBatchPost**](TxApi.md#TxBroadcastBatchPost) | **Post** /tx/broadcast/batch | Broadcast a batch of tx to MvcApi fullnode. This endpoint use rpc sendrawtransactions.
+[**TxBroadcastPost**](TxApi.md#TxBroadcastPost) | **Post** /tx/broadcast | Broadcast tx to MvcApi fullnode.
 [**TxTxidGet**](TxApi.md#TxTxidGet) | **Get** /tx/{txid} | Get transaction detail by specific txid.
 [**TxTxidRawGet**](TxApi.md#TxTxidRawGet) | **Get** /tx/{txid}/raw | Get transaction raw hex by specific txid.
-[**TxTxidSeenGet**](TxApi.md#TxTxidSeenGet) | **Get** /tx/{txid}/seen | Whether MetaSV have seen this tx before. This is a fast approach to know if the tx exist or not.
+[**TxTxidSeenGet**](TxApi.md#TxTxidSeenGet) | **Get** /tx/{txid}/seen | Whether MvcApi have seen this tx before. This is a fast approach to know if the tx exist or not.
 [**VinTxidDetailGet**](TxApi.md#VinTxidDetailGet) | **Get** /vin/{txid}/detail | Get all output point of vins in the tx with detailed output script.
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 > BatchBroadcastResult TxBroadcastBatchPost(ctx).TxRaw(txRaw).Execute()
 
-Broadcast a batch of tx to metasv fullnode. This endpoint use rpc sendrawtransactions.
+Broadcast a batch of tx to MvcApi fullnode. This endpoint use rpc sendrawtransactions.
 
 
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 > BroadcastResult TxBroadcastPost(ctx).TxRaw(txRaw).Execute()
 
-Broadcast tx to metasv fullnode.
+Broadcast tx to MvcApi fullnode.
 
 
 
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 > bool TxTxidSeenGet(ctx, txid).Execute()
 
-Whether MetaSV have seen this tx before. This is a fast approach to know if the tx exist or not.
+Whether MvcApi have seen this tx before. This is a fast approach to know if the tx exist or not.
 
 ### Example
 
