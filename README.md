@@ -24,7 +24,7 @@ go get github.com/mvc-labs/mvcapi-sdk-go
 Example
 
 ```golang
-auth := context.WithValue(context.Background(), metasv.ContextAccessToken, "BEARERTOKENSTRING")
+auth := context.WithValue(context.Background(), mvcapi.ContextAccessToken, "BEARERTOKENSTRING")
 r, err := client.Service.Operation(auth, args)
 ```
 
@@ -36,14 +36,14 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/metasv/metasv-mvc-sdk-go"
+	"github.com/mvc-labs/mvcapi-sdk-go"
 	"os"
 )
 
 func main() {
-	authCtx := context.WithValue(context.Background(), metasv.ContextAccessToken, "YOUR_METASV_KEY")
-	configuration := metasv.NewConfiguration()
-	client := metasv.NewAPIClient(configuration)
+	authCtx := context.WithValue(context.Background(), mvcapi.ContextAccessToken, "YOUR_mvcapi_KEY")
+	configuration := mvcapi.NewConfiguration()
+	client := mvcapi.NewAPIClient(configuration)
 
 	_, response, err := client.BlockApi.BlockInfoGet(authCtx).Execute()
 	if err.Error() != "" {
@@ -58,5 +58,5 @@ func main() {
 
 ## Author
 
-heqiming@metasv.com
+heqiming@mvcapi.com
 
