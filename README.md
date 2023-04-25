@@ -41,7 +41,11 @@ import (
 )
 
 func main() {
-	authCtx := context.WithValue(context.Background(), mvcapi.ContextAccessToken, "YOUR_mvcapi_KEY")
+	authCtx := context.WithValue(context.Background(), mvcapi.ContextAccessToken, "YOUR_MVCAPI_KEY")
+	// testnet config
+	authCtx = context.WithValue(authCtx, mvcapi.ContextServerIndex, 0)
+	// mainnet config
+	//authCtx = context.WithValue(authCtx, mvcapi.ContextServerIndex, 1)
 	configuration := mvcapi.NewConfiguration()
 	client := mvcapi.NewAPIClient(configuration)
 
