@@ -15,33 +15,33 @@ import (
 	"encoding/json"
 )
 
-// XpubBalance Registered Xpub balance including confirmed and unconfirmed
-type XpubBalance struct {
-	// confirmed balance
+// ContractFtGenesisCirculation Get total circulation for specific genesis of ft token.
+type ContractFtGenesisCirculation struct {
+	// Confirmed circulation of the token(Sum of confirmed amount).
 	Confirmed *int64 `json:"confirmed,omitempty"`
-	// unconfirmed balance
+	// Unconfirmed circulation of the token(Unconfirmed new token - Unconfirmed spent).
 	Unconfirmed *int64 `json:"unconfirmed,omitempty"`
 }
 
-// NewXpubBalance instantiates a new XpubBalance object
+// NewContractFtGenesisCirculation instantiates a new ContractFtGenesisCirculation object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewXpubBalance() *XpubBalance {
-	this := XpubBalance{}
+func NewContractFtGenesisCirculation() *ContractFtGenesisCirculation {
+	this := ContractFtGenesisCirculation{}
 	return &this
 }
 
-// NewXpubBalanceWithDefaults instantiates a new XpubBalance object
+// NewContractFtGenesisCirculationWithDefaults instantiates a new ContractFtGenesisCirculation object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewXpubBalanceWithDefaults() *XpubBalance {
-	this := XpubBalance{}
+func NewContractFtGenesisCirculationWithDefaults() *ContractFtGenesisCirculation {
+	this := ContractFtGenesisCirculation{}
 	return &this
 }
 
 // GetConfirmed returns the Confirmed field value if set, zero value otherwise.
-func (o *XpubBalance) GetConfirmed() int64 {
+func (o *ContractFtGenesisCirculation) GetConfirmed() int64 {
 	if o == nil || o.Confirmed == nil {
 		var ret int64
 		return ret
@@ -51,7 +51,7 @@ func (o *XpubBalance) GetConfirmed() int64 {
 
 // GetConfirmedOk returns a tuple with the Confirmed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *XpubBalance) GetConfirmedOk() (*int64, bool) {
+func (o *ContractFtGenesisCirculation) GetConfirmedOk() (*int64, bool) {
 	if o == nil || o.Confirmed == nil {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *XpubBalance) GetConfirmedOk() (*int64, bool) {
 }
 
 // HasConfirmed returns a boolean if a field has been set.
-func (o *XpubBalance) HasConfirmed() bool {
+func (o *ContractFtGenesisCirculation) HasConfirmed() bool {
 	if o != nil && o.Confirmed != nil {
 		return true
 	}
@@ -68,12 +68,12 @@ func (o *XpubBalance) HasConfirmed() bool {
 }
 
 // SetConfirmed gets a reference to the given int64 and assigns it to the Confirmed field.
-func (o *XpubBalance) SetConfirmed(v int64) {
+func (o *ContractFtGenesisCirculation) SetConfirmed(v int64) {
 	o.Confirmed = &v
 }
 
 // GetUnconfirmed returns the Unconfirmed field value if set, zero value otherwise.
-func (o *XpubBalance) GetUnconfirmed() int64 {
+func (o *ContractFtGenesisCirculation) GetUnconfirmed() int64 {
 	if o == nil || o.Unconfirmed == nil {
 		var ret int64
 		return ret
@@ -83,7 +83,7 @@ func (o *XpubBalance) GetUnconfirmed() int64 {
 
 // GetUnconfirmedOk returns a tuple with the Unconfirmed field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *XpubBalance) GetUnconfirmedOk() (*int64, bool) {
+func (o *ContractFtGenesisCirculation) GetUnconfirmedOk() (*int64, bool) {
 	if o == nil || o.Unconfirmed == nil {
 		return nil, false
 	}
@@ -91,7 +91,7 @@ func (o *XpubBalance) GetUnconfirmedOk() (*int64, bool) {
 }
 
 // HasUnconfirmed returns a boolean if a field has been set.
-func (o *XpubBalance) HasUnconfirmed() bool {
+func (o *ContractFtGenesisCirculation) HasUnconfirmed() bool {
 	if o != nil && o.Unconfirmed != nil {
 		return true
 	}
@@ -100,11 +100,11 @@ func (o *XpubBalance) HasUnconfirmed() bool {
 }
 
 // SetUnconfirmed gets a reference to the given int64 and assigns it to the Unconfirmed field.
-func (o *XpubBalance) SetUnconfirmed(v int64) {
+func (o *ContractFtGenesisCirculation) SetUnconfirmed(v int64) {
 	o.Unconfirmed = &v
 }
 
-func (o XpubBalance) MarshalJSON() ([]byte, error) {
+func (o ContractFtGenesisCirculation) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.Confirmed != nil {
 		toSerialize["confirmed"] = o.Confirmed
@@ -115,38 +115,38 @@ func (o XpubBalance) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableXpubBalance struct {
-	value *XpubBalance
+type NullableContractFtGenesisCirculation struct {
+	value *ContractFtGenesisCirculation
 	isSet bool
 }
 
-func (v NullableXpubBalance) Get() *XpubBalance {
+func (v NullableContractFtGenesisCirculation) Get() *ContractFtGenesisCirculation {
 	return v.value
 }
 
-func (v *NullableXpubBalance) Set(val *XpubBalance) {
+func (v *NullableContractFtGenesisCirculation) Set(val *ContractFtGenesisCirculation) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableXpubBalance) IsSet() bool {
+func (v NullableContractFtGenesisCirculation) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableXpubBalance) Unset() {
+func (v *NullableContractFtGenesisCirculation) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableXpubBalance(val *XpubBalance) *NullableXpubBalance {
-	return &NullableXpubBalance{value: val, isSet: true}
+func NewNullableContractFtGenesisCirculation(val *ContractFtGenesisCirculation) *NullableContractFtGenesisCirculation {
+	return &NullableContractFtGenesisCirculation{value: val, isSet: true}
 }
 
-func (v NullableXpubBalance) MarshalJSON() ([]byte, error) {
+func (v NullableContractFtGenesisCirculation) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableXpubBalance) UnmarshalJSON(src []byte) error {
+func (v *NullableContractFtGenesisCirculation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

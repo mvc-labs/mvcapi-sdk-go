@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**ContractFtAddressAddressBalanceGet**](ContractApi.md#ContractFtAddressAddressBalanceGet) | **Get** /contract/ft/address/{address}/balance | Get all contract token balances for specific address.
 [**ContractFtAddressAddressCodeHashGenesisTxGet**](ContractApi.md#ContractFtAddressAddressCodeHashGenesisTxGet) | **Get** /contract/ft/address/{address}/{codeHash}/{genesis}/tx | Get all contract token balances for specific address.
 [**ContractFtAddressAddressUtxoGet**](ContractApi.md#ContractFtAddressAddressUtxoGet) | **Get** /contract/ft/address/{address}/utxo | Get all contract token utxos for specific address.
+[**ContractFtGenesisCodeHashGenesisCirculationGet**](ContractApi.md#ContractFtGenesisCodeHashGenesisCirculationGet) | **Get** /contract/ft/genesis/{codeHash}/{genesis}/circulation | Get all sum of circulation ft token utxos by codeHash and genesisId(10min cached).
 [**ContractNftAddressAddressCountConfirmedGet**](ContractApi.md#ContractNftAddressAddressCountConfirmedGet) | **Get** /contract/nft/address/{address}/count/confirmed | Get confirmed utxo count for specific nft(ignore all unconfirmed txs).
 [**ContractNftAddressAddressSummaryGet**](ContractApi.md#ContractNftAddressAddressSummaryGet) | **Get** /contract/nft/address/{address}/summary | Get nft summary(NFT count group by genesis) for address.
 [**ContractNftAddressAddressUtxoGet**](ContractApi.md#ContractNftAddressAddressUtxoGet) | **Get** /contract/nft/address/{address}/utxo | Get all contract nft token utxos for specific address.
@@ -298,6 +299,77 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]ContractFtUtxo**](ContractFtUtxo.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ContractFtGenesisCodeHashGenesisCirculationGet
+
+> ContractFtGenesisCirculation ContractFtGenesisCodeHashGenesisCirculationGet(ctx, codeHash, genesis).Execute()
+
+Get all sum of circulation ft token utxos by codeHash and genesisId(10min cached).
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    codeHash := "codeHash_example" // string | Code hash of the token.
+    genesis := "genesis_example" // string | Contract genesis
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.ContractApi.ContractFtGenesisCodeHashGenesisCirculationGet(context.Background(), codeHash, genesis).Execute()
+    if err.Error() != "" {
+        fmt.Fprintf(os.Stderr, "Error when calling `ContractApi.ContractFtGenesisCodeHashGenesisCirculationGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ContractFtGenesisCodeHashGenesisCirculationGet`: ContractFtGenesisCirculation
+    fmt.Fprintf(os.Stdout, "Response from `ContractApi.ContractFtGenesisCodeHashGenesisCirculationGet`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**codeHash** | **string** | Code hash of the token. | 
+**genesis** | **string** | Contract genesis | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiContractFtGenesisCodeHashGenesisCirculationGetRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**ContractFtGenesisCirculation**](ContractFtGenesisCirculation.md)
 
 ### Authorization
 
